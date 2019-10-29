@@ -1,0 +1,197 @@
+/*
+ ============================================================================
+ Description : Doing insert and delete the proper way. Now ready to finish lab 6
+ ============================================================================
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct guest
+{
+	int number_guests;
+	char name[11];
+	struct guest *next;
+	struct guest *prev;
+};
+
+
+// now I need to come up with an array that will allow me to categorize these by size. but it should be an array of pointers!
+
+struct guest *list = NULL; // initialize all the pointers to NULL
+
+void insert();
+void print();
+void delete();
+void quit();
+
+int main(void)
+
+{
+	int selection;
+
+	while(1) // this time keep the functionality to 3 functions
+	{
+		printf("\n\nenter selections:\n(1) front insert() the list \n(2) delete() \n(3) show the list \n(0) exit.  ");
+		scanf("%d", &selection);
+
+		switch (selection)
+		{
+		case 1:
+			insert();
+			break;
+		case 2:
+			delete();
+			break;
+
+		case 3:
+			print();
+			break;
+
+		case 0:
+			quit();
+			break;
+
+		default:
+			printf("\nselection %d: wrong choice. enter selctions 1-4 ", selection);
+			break;
+
+		}
+
+	}
+	return EXIT_SUCCESS;
+}
+
+
+
+void insert()
+{
+	struct guest * new_node = (struct guest *) malloc(sizeof(struct guest));
+	// these two below are super important. without them everything breaks.
+	new_node->next = NULL;
+	new_node->prev = NULL;
+
+	// enter stuff into each one of the elements
+
+	printf("\nenter the name: ");
+	scanf("%s", new_node->name);
+
+	printf("\n%s", new_node->name);
+
+	printf("\nenter the # guests: ");
+	scanf("%d", &new_node->number_guests);
+
+	printf("\n%d", new_node->number_guests);
+
+
+	if(list == NULL)
+	{
+		list = new_node;
+	}
+
+	else
+	{
+		new_node->next = list; // (1)
+		list->prev= new_node; //(2)
+		list = new_node; // (3)
+	}
+
+}
+
+
+void print()
+{
+	struct guest *index = list;
+
+	if(index == NULL)
+		printf("\n list is empty!!!");
+
+	while(index !=NULL)
+	{
+		printf("\n%s", index->name);
+		printf(": party of %d", index->number_guests);
+		index = index->next;
+	}
+
+}
+
+
+void quit()
+{
+
+	struct guest *index = list;
+	struct guest *delete;
+
+	while(index !=NULL)
+	{
+		delete = index;
+		index = index->next;
+		free(delete);
+	}
+
+	exit(0);
+}
+
+
+
+void delete() // delete the number: remember it is a FIFO so I need to get to the end.
+{
+	int guest_number;
+	printf("\nenter the number of guests to delete");
+	scanf("%d", &guest_number);
+
+
+	struct guest *addr = list;
+	struct guest *node; // this node will be used the store the address of the last (earliest in terms of entry) with the given number
+
+
+	if (addr == NULL)
+	{
+		printf("\n!!! category empty !!!");
+	}
+	else
+
+	{
+		while(addr != NULL)
+
+		{
+			if(addr->number_guests== guest_number)
+			{
+				node = addr; // this will select the node we want to delete
+			}
+			addr = addr->next;
+		}
+
+
+		printf("\n deleting %s: party of %d.", node->name, node->number_guests);
+
+		if(node->prev == NULL && node ->next == NULL)
+		{
+			list = NULL;
+			free(node);
+		}
+		else {
+
+			if(node->prev == NULL) // first element in the list
+			{
+				list = node->next;
+				node->next->prev = NULL;
+				free(node);
+			}
+
+			else if(node->next == NULL) // last element in the list
+			{
+				node->prev->next = NULL;
+				free(node);
+			}
+			else // neither last nor first
+			{
+				node->prev->next = node->next;
+				node->next->prev = node->prev;
+				free(node);
+			}
+		}
+	}
+
+}

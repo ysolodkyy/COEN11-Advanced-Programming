@@ -1,0 +1,19 @@
+17:40:06 **** Incremental Build of configuration Debug for project lab1 ****
+make all 
+Building file: ../src/lab1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/lab1.d" -MT"src/lab1.o" -o "src/lab1.o" "../src/lab1.c"
+../src/lab1.c:29:14: warning: implicit declaration of function 'time' is invalid in C99 [-Wimplicit-function-declaration]
+        srand((int) time(NULL)); // random seed or something like that.
+                    ^
+1 warning generated.
+Finished building: ../src/lab1.c
+ 
+Building target: lab1
+Invoking: MacOS X C Linker
+gcc  -o "lab1"  ./src/lab1.o   
+Finished building target: lab1
+ 
+
+17:40:06 Build Finished (took 186ms)
+

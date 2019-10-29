@@ -1,0 +1,15 @@
+21:18:37 **** Incremental Build of configuration Debug for project lab6_double_linked_list ****
+make all 
+Building file: ../src/lab6_double_linked_list.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/lab6_double_linked_list.d" -MT"src/lab6_double_linked_list.o" -o "src/lab6_double_linked_list.o" "../src/lab6_double_linked_list.c"
+Finished building: ../src/lab6_double_linked_list.c
+ 
+Building target: lab6_double_linked_list
+Invoking: MacOS X C Linker
+gcc  -o "lab6_double_linked_list"  ./src/lab6_double_linked_list.o   
+Finished building target: lab6_double_linked_list
+ 
+
+21:18:37 Build Finished (took 227ms)
+

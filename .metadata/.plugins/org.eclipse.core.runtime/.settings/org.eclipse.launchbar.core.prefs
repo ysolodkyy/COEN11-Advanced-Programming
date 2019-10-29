@@ -1,0 +1,15 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:lab4_simplistic,org.eclipse.launchbar.core.descriptorType.default\:lab4_redone,org.eclipse.launchbar.core.descriptorType.default\:strcp,org.eclipse.launchbar.core.descriptorType.default\:union,org.eclipse.launchbar.core.descriptorType.default\:struct_array_lab3,org.eclipse.launchbar.core.descriptorType.default\:lab4_with_arguments,org.eclipse.launchbar.core.descriptorType.default\:improved_lab3,org.eclipse.launchbar.core.descriptorType.default\:lab1,org.eclipse.launchbar.core.descriptorType.default\:lab3,org.eclipse.launchbar.core.descriptorType.default\:array_as_argument,org.eclipse.launchbar.core.descriptorType.default\:Dummy,org.eclipse.launchbar.core.descriptorType.default\:resize_array,org.eclipse.launchbar.core.descriptorType.default\:string_copy,org.eclipse.launchbar.core.descriptorType.default\:lab4,org.eclipse.launchbar.core.descriptorType.default\:scanf_ways,org.eclipse.launchbar.core.descriptorType.default\:lab5_with_arguments,org.eclipse.launchbar.core.descriptorType.default\:lab2,org.eclipse.launchbar.core.descriptorType.default\:lab6_beginnings,org.eclipse.launchbar.core.descriptorType.default\:struct_pointer_array,org.eclipse.launchbar.core.descriptorType.default\:lab6_double_linked_list,org.eclipse.launchbar.core.descriptorType.default\:delete,org.eclipse.launchbar.core.descriptorType.default\:lab5_cowardly_way
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:delete/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:delete/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:lab1/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:lab1/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:lab4_redone/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:lab4_redone/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:lab4_simplistic/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:lab4_simplistic/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:struct_array_lab3/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:struct_array_lab3/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

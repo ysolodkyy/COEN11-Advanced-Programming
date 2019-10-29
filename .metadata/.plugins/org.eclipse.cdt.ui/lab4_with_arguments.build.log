@@ -1,0 +1,6 @@
+20:55:45 **** Incremental Build of configuration Debug for project lab4_with_arguments ****
+make all 
+make: Nothing to be done for `all'.
+
+20:55:45 Build Finished (took 109ms)
+

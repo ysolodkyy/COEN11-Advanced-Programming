@@ -1,0 +1,27 @@
+21:33:16 **** Incremental Build of configuration Debug for project lab4 ****
+make all 
+Building file: ../src/lab4.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/lab4.d" -MT"src/lab4.o" -o "src/lab4.o" "../src/lab4.c"
+../src/lab4.c:110:15: error: member reference type 'struct Human' is not a pointer; did you mean to use '.'?
+        list[counter]->age = number;
+        ~~~~~~~~~~~~~^~
+                     .
+../src/lab4.c:110:21: error: expression is not assignable
+        list[counter]->age = number;
+        ~~~~~~~~~~~~~~~~~~ ^
+../src/lab4.c:127:16: error: member reference type 'struct Human' is not a pointer; did you mean to use '.'?
+                list[counter]->status->salary = salary;
+                ~~~~~~~~~~~~~^~
+                             .
+../src/lab4.c:127:18: error: no member named 'status' in 'struct Human'
+                list[counter]->status->salary = salary;
+                ~~~~~~~~~~~~~  ^
+../src/lab4.c:133:7: warning: unused variable 'years' [-Wunused-variable]
+                int years;
+                    ^
+1 warning and 4 errors generated.
+make: *** [src/lab4.o] Error 1
+
+21:33:16 Build Finished (took 149ms)
+

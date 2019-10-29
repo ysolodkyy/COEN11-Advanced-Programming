@@ -1,0 +1,19 @@
+15:01:20 **** Incremental Build of configuration Debug for project string_copy ****
+make all 
+Building file: ../src/string_copy.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/string_copy.d" -MT"src/string_copy.o" -o "src/string_copy.o" "../src/string_copy.c"
+../src/string_copy.c:29:10: error: passing 'struct guest [4]' to parameter of incompatible type 'struct guest'
+        addName(room1);
+                ^~~~~
+../src/string_copy.c:18:27: note: passing argument to parameter 'list' here
+void addName(struct guest list);
+                          ^
+../src/string_copy.c:61:21: error: subscripted value is not an array, pointer, or vector
+                scanf("%d", &(list[count]->num_guests)); // I want to dereference. since I am scanning I need &
+                              ~~~~^~~~~~
+2 errors generated.
+make: *** [src/string_copy.o] Error 1
+
+15:01:20 Build Finished (took 127ms)
+

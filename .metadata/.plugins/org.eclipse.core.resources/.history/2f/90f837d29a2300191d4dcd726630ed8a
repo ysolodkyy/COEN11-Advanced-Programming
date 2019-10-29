@@ -1,0 +1,213 @@
+/*
+ ============================================================================
+ Name        : lab6_double_linked_list.c
+ Author      :
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct guest
+{
+	int number_guests;
+	char name[11];
+	struct guest *next;
+	struct guest *prev;
+};
+
+
+// now I need to come up with an array that will allow me to categorize these by size. but it should be an array of pointers!
+
+struct guest *list = NULL; // initialize all the pointers to NULL
+
+void insert();
+void print();
+void delete();
+void quit();
+
+int main(void)
+
+{
+	int selection;
+
+	while(1) // this time keep the functionality to 3 functions
+	{
+		printf("\n\nenter selections:\n(1) front insert() the list \n(2) delete() \n(3) show the list \n(0) exit.  ");
+		scanf("%d", &selection);
+
+		switch (selection)
+		{
+		case 1:
+			insert();
+			break;
+		case 2:
+			delete();
+			break;
+
+		case 3:
+			print();
+			break;
+
+		case 0:
+			quit();
+			break;
+
+		default:
+			printf("\nselection %d: wrong choice. enter selctions 1-4 ", selection);
+			break;
+
+		}
+
+	}
+	return EXIT_SUCCESS;
+}
+
+
+
+void insert()
+{
+	struct guest * new_node = (struct guest *) malloc(sizeof(struct guest));
+
+	// enter stuff into each one of the elements
+
+	printf("\nenter the name: ");
+	scanf("%s", new_node->name);
+
+	printf("\n%s", new_node->name);
+
+	printf("\nenter the # guests: ");
+	scanf("%d", &new_node->number_guests);
+
+	printf("\n%d", new_node->number_guests);
+
+
+	if(list == NULL)
+	{
+		new_node->next = NULL;
+		list = new_node;
+		new_node->prev = list;
+
+	}
+
+	else
+	{
+		new_node->next = list;
+		list = new_node;
+		new_node->prev = list;
+	}
+
+
+}
+
+
+void print()
+{
+	struct guest *index = list;
+
+	if(index == NULL)
+		printf("\n list is empty!!!");
+
+	while(index !=NULL)
+	{
+		printf("\n%s", index->name);
+		printf(": party of %d", index->number_guests);
+		index = index->next;
+	}
+
+}
+
+
+void quit()
+{
+
+	struct guest *index = list;
+	struct guest *delete;
+
+	while(index !=NULL)
+	{
+		delete = index;
+		index = index->next;
+		free(delete);
+	}
+
+	exit(0);
+}
+
+
+void delete() // delete the number: remember it is a FIFO so I need to get to the end.
+{
+	int guest_number;
+	printf("\nenter the number of guests to delete");
+	scanf("%d", &guest_number);
+
+
+	struct guest *addr = list;
+	struct guest *node; // this node will be used the store the address of the last (earliest in terms of entry) with the given number
+
+
+	if (addr == NULL)
+	{
+		printf("\n!!! category empty !!!");
+	}
+	else
+
+	{
+		while(addr != NULL)
+
+		{
+			if(addr->number_guests== guest_number)
+			{
+				node = addr; // this will select the node we want to delete
+			}
+			addr = addr->next;
+		}
+
+
+		printf("\n deleting %s: party of %d.", node->name, node->number_guests);
+
+
+			if(node->next == NULL) // IF LAST -- so this one does not work
+			{
+				if (node->prev == list) // IF LAST and FIRST in the list
+				{
+					printf("\n last & first...");
+					list = NULL;
+				}
+
+				else // last && NOT first
+				{
+					printf("\n last && NOT first, node->prev: %s", node->prev->name);
+					node->prev->next = NULL;
+				}
+			}
+
+			// IF NOT LAST i.e. node ->next ! = NULL
+			else
+			{
+				if (node->prev == list) // first in the list
+				{
+					printf("\n  not last && yet first: node->next: %s",  node->next->name);
+					list = node->next;
+					node->next->prev=list;
+				}
+
+				else // not first, nor last
+				{
+					printf("\n  neither last && nor first: node->prev: %s,  node->next: %s", node->prev->name,  node->next->name);
+
+					node->prev->next = node->next;
+					node->next->prev=node->prev;
+				}
+			}
+
+			free(node);
+
+	}
+
+}
+

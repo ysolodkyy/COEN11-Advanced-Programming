@@ -1,0 +1,6 @@
+23:37:53 **** Incremental Build of configuration Debug for project lab5_cowardly_way ****
+make all 
+make: Nothing to be done for `all'.
+
+23:37:53 Build Finished (took 71ms)
+
